@@ -15,7 +15,7 @@
 
 h1 {
   font-size: 40px;
-  color: navy;
+  color: #F5A623;
   line-height: 48px;
   display: inline;
 }
@@ -84,25 +84,24 @@ a {
   font-size: 18px;
   color: #F3F3F3;
   line-height: 28px;
-  padding: 0px;
 }
 
 #skillsH3 {
-  color: navy;
+  color: #F5AE23;
   display: none;
 }
 
 .orange {
-  background-color: #navy;
+  background-color: #F5AE23;
 }
 
 .orange-text {
-  color: navy;
+  color: #F5AE23;
 }
 
 .white-text {
   font-weight: bold;
-  color: #0060A0;
+  color: #FFFFFF;
 }
 
 .gray {
@@ -112,12 +111,12 @@ a {
 }
 
 .dark-gray {
-  background-color: #F3F3F3;
+  background-color: #4A4A4A;
 }
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #c8c8c8;
+  background-color: #484848;
 }
 
 .flex-box {
@@ -149,12 +148,6 @@ li {
   padding: 10px;
   width: 200px;
   display: none;
-}
-
-/** FIX for Bootstrap and Google Maps Info window styes problem **/
-img[src*="gstatic.com/"], img[src*="googleapis.com/"] {
-max-width: none;
-max-height: none;
 }
 
 img {
