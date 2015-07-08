@@ -33,7 +33,7 @@ body {
 	opacity: .4%;
 }
 
-.logo {
+.old_logo {
     position: relative;
     width: auto;
     height: auto;
@@ -48,7 +48,21 @@ body {
 
     z-index: 1;
     background-color: transparent;
-    /*background: transparent;*/
+
+}
+.logo {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0px;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+
+    z-index: -1;
+
 }
 
 .bg_image {
@@ -57,8 +71,8 @@ body {
     height: auto;
 	padding: 0px;
 
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     margin-right: auto;
     margin-left: auto;
 

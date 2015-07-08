@@ -2,18 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" media="screen and (min-width:501px)"href="css/desktop.css">
-  <link rel="stylesheet" media="screen and (max-width:500px)" href="css/mobile.css">
-  <link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
   <!--
-  <script src="app.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/kh_style.min.css">
+  <link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
   <title>Contact Kobi Halperin</title>
 </head>
 <body>
@@ -23,10 +17,10 @@
         <a href="index.html">
         <img class="img-respondsive logo" src="images/KH_logo.jpg" alt="Kobi Halperin">
         </a>
-        <img id="menu_btn" onclick="showMenu()" src="images/menu-btn.png">
-
-        <nav id="drawer">
-          <ul class="nav_menu">
+      </div>
+      <div class="col-md-6">
+        <nav>
+          <ul class="ul_right">
             <li><a href="about.html">About</a></li>       
             <li class="active"><a href="contact.html">Contact</a>
             <li><a href="press.html">Press</a></li>
@@ -36,15 +30,11 @@
             </li>
           </ul>
         </nav>
-
       </div>
     </div> <!-- page_top -->
 
     <div class="row " id="page_middle">
       <div class="col-md-12 contacts">
-
-
-
           <h5>CORPORATE</h5>
           Kobi Halperin Headquarters
           <br>
@@ -80,13 +70,5 @@
     ga('create', 'UA-60692567-1', 'auto');
     ga('send', 'pageview');
   </script>
-
-  <script>
-  function showMenu(){
-    drawer.classList.toggle('open');
-    //alert("Open Sesame");
-  }
-  </script>
-
 </body>
 </html>
