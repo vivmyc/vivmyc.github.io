@@ -506,7 +506,7 @@ function updatePositions() {
 
   // Moved these calculations out of the for loop below to optimize
   var dbs = document.body.scrollTop / 1250;
-  var phaseArr[];
+  var phaseArr=[];
   for (var i=0; 1<5; i++) {
     phaseArr[i]=Math.sin((dbs) + (i % 5));
   }
