@@ -503,9 +503,10 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+  var dbs = document.body.scrollTop / 1250;
   for (var i = 0; i < items.length; i++) {
-    // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    var phase = Math.sin((3.2656) + (i % 5));
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    //var phase = Math.sin((dbs) + (i % 5));
 
     // console.log("remainder="+ (i % 5));
     // console.log(phase, document.body.scrollTop /1250)
