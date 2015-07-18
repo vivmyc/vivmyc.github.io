@@ -504,11 +504,15 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
   var dbs = document.body.scrollTop / 1250;
+
+  console.log ("items length=" + items.length);
   for (var i = 0; i < items.length; i++) {
-    //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+
     var phase = Math.sin((dbs) + (i % 5));
 
     var phase = Math.sin((dbs) + i);
+
 
     // console.log("remainder="+ (i % 5));
     // console.log(phase, document.body.scrollTop /1250)
