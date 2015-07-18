@@ -503,19 +503,24 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
+
+  // Moved these calculations out of the for loop below to optimize
   var dbs = document.body.scrollTop / 1250;
+  var phaseArr[];
+  for (var i=0; 1<5; i++) {
+    phaseArr[i]=Math.sin((dbs) + (i % 5));
+  }
 
-  console.log ("items length=" + items.length);
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    // changed to calculate dbs outside of for loop:
+    // var phase = Math.sin((dbs) + (i % 5));
 
-    var phase = Math.sin((dbs) + (i % 5));
-
-    var phase = Math.sin((dbs) + i);
+    var phase = phaseArr[i];
 
 
     // console.log("remainder="+ (i % 5));
-    // console.log(phase, document.body.scrollTop /1250)
+    console.log(phase, document.body.scrollTop /1250)
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
   }
