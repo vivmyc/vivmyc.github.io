@@ -448,12 +448,21 @@ var resizePizzas = function(size) {
     return dx;
   }
 
+
   // Iterates through pizza elements on the page and changes their widths
+  // 7/18/15 Optimization:
+  // Relaced querySelectorAll() with faster getElementsByClassName()
+  // Pulled dx and newwidth calculation of the for loop since it doesn't change
+
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+
+    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
+    var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
+
+    for (var i=0; i < randomPizzas.length; i++) {
+      document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -504,24 +513,15 @@ function updatePositions() {
 
   var items = document.querySelectorAll('.mover');
 
-  // Moved these calculations out of the for loop below to optimize
+  // 7/18/15 Optimization:
+  // Moved this DOM access and phase calculation out of the for loop below since it doesn't change
   var dbs = document.body.scrollTop / 1250;
-  var phaseArr=[];
-  for (var i=0; 1<5; i++) {
-    phaseArr.push(Math.sin((dbs) + (i % 5)));
-    console.log("array length=" + phaseArr.length + " array item added=" + phaseArr[i]);
-  }
+  var phaseArr = [ Math.sin(dbs + (0 % 5)),  Math.sin(dbs + (1 % 5)),  Math.sin(dbs + (2 % 5)),  Math.sin(dbs + (3 % 5)),  Math.sin(dbs + (4 % 5)) ];
+  //console.log ("phases 1-5:", phaseArr[0], phaseArr[1], phaseArr[2], phaseArr[3], phaseArr[4] );
 
   for (var i = 0; i < items.length; i++) {
-    // var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    // changed to calculate dbs outside of for loop:
-    // var phase = Math.sin((dbs) + (i % 5));
-
-    var phase = phaseArr[i];
-
-
-    // console.log("remainder="+ (i % 5));
-    console.log(phase, document.body.scrollTop /1250)
+    var j=i % 5;
+    var phase=phaseArr[j];
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
   }
@@ -543,7 +543,9 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 25; i++) {
+  for (var i = 0; i < 30; i++) {
+  // 7/18/15: Optimization:
+  // changed 200 to 30 since that is all the animated pizza's we need to cover screen
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
