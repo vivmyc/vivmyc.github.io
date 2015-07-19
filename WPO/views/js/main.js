@@ -508,7 +508,8 @@ function updatePositions() {
   var dbs = document.body.scrollTop / 1250;
   var phaseArr=[];
   for (var i=0; 1<5; i++) {
-    phaseArr[i]=Math.sin((dbs) + (i % 5));
+    phaseArr.push(Math.sin((dbs) + (i % 5)));
+    console.log("array length=" + phaseArr.length + " array item added=" + phaseArr[i]);
   }
 
   for (var i = 0; i < items.length; i++) {
