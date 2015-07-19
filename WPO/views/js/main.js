@@ -517,7 +517,7 @@ function updatePositions() {
   // Moved this DOM access and phase calculation out of the for loop below since it doesn't change
   var dbs = document.body.scrollTop / 1250;
   var phaseArr = [ Math.sin(dbs + (0 % 5)),  Math.sin(dbs + (1 % 5)),  Math.sin(dbs + (2 % 5)),  Math.sin(dbs + (3 % 5)),  Math.sin(dbs + (4 % 5)) ];
-  //console.log ("phases 1-5:", phaseArr[0], phaseArr[1], phaseArr[2], phaseArr[3], phaseArr[4] );
+  console.log ("phases 1-5:", phaseArr[0], phaseArr[1], phaseArr[2], phaseArr[3], phaseArr[4] );
 
   for (var i = 0; i < items.length; i++) {
     var j=i % 5;
