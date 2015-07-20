@@ -7,8 +7,18 @@
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
 
+    <!--
+      7/12/15: Made the following optimization changes:
+      - Added async attribute to anaytics and perfmatters js
+      - Added media query to the print.css external link
+      - Commented out google font external link since not used
+      - Compressed and reduced size of pizzeria.jpg for front page
+      - Inlined style.css
+    -->
+
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
     <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+
 
     <style type="text/css">
         html {
@@ -63,6 +73,7 @@
     </style>
 
 
+    <!-- Optimization Added media query -->
     <!-- <link href="css/style.css" rel="stylesheet"> -->
     <link href="css/print.css" rel="stylesheet" media="print">
 
@@ -74,6 +85,7 @@
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
+    <!-- optimization: execute these scripts asynchroously -->
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
   </head>

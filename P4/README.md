@@ -1,4 +1,4 @@
-## Website Performance Optimization portfolio project
+## Website Performance Optimization Portfolio Project
 
 ### Running the application:
 
@@ -13,13 +13,14 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 
 ### Optimizations Made:
 
-##### Critical Rendering Path optimizations have been made to index.html.
+##### Critical Rendering Path optimizations have been made to index.html
+(For specifics, see index.html comment)
 
   - The Pagespeed Insights score for desktop has gone from 30% to 97%.
 
   - The Pagespeed Insights score for mobile has gone from 28% to 95%.
 
-##### Browser Rendering Optimizations have been made to improve pizza.html.
+##### Browser Rendering Optimizations have been made to improve pizza.html
 
   - Changed updatePositions() function in view/js/main.js to move the
   DOM access out of the for loop.
@@ -33,10 +34,14 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
   - Also in function changePizzaSizes(), pulled dx and newwidth calculation
   of the for loop since they don't change.
 
-  - Updated .mover class in style.css to add backface-visibility:hidden
+  - Updated mover class in style.css to add backface-visibility:hidden
   which creates moving pizza's in their own layers and reduces the amount of
   painting needed when page is scrolled.
 
+##### Other Improvments
+
+  - Installed and setup gulp to automate the minifying of CSS files and uglifying
+  of javascript files.
 
 
 
