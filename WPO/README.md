@@ -14,7 +14,7 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 ### Optimizations Made:
 
 ##### Critical Rendering Path optimizations have been made to index.html
-(specifics in index.html comment)
+(For specifics, see index.html comment)
 
   - The Pagespeed Insights score for desktop has gone from 30% to 97%.
 
