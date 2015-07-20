@@ -461,7 +461,9 @@ var resizePizzas = function(size) {
     var dx = determineDx(document.getElementsByClassName("randomPizzaContainer")[0], size);
     var newwidth = (document.getElementsByClassName("randomPizzaContainer")[0].offsetWidth + dx) + 'px';
 
-    for (var i=0; i < randomPizzas.length; i++) {
+    // 7/20/2015 Optimization - store length of array in local var
+    var lenPizza = randomPizzas.length;
+    for (var i=0; i < lenPizza; i++) {
       //document.getElementsByClassName("randomPizzaContainer")[i].style.width = newwidth;
       randomPizzas[i].style.width = newwidth;
     }
@@ -479,8 +481,10 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+// 6/20/15 Optimization - declare pizzasDiv outside of loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
+  //var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -518,10 +522,12 @@ function updatePositions() {
   // Moved this DOM access out of the for loop below
   var dbs = document.body.scrollTop / 1250;
 
-  for (var i = 0; i < items.length; i++) {
+  // 7/20/2015 Optimization - store length of array in local var
+  var lenItems = items.length;
+  for (var i = 0; i < lenItems; i++) {
     phase = Math.sin(dbs + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-    items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
+    //items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -541,17 +547,24 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 30; i++) {
+
+  // 7/20/2015 Optimization - delclare elem var outside the loop
+  // Also moved DOM access outside the look and used faster getElementById
+  // in place of querySelector
+  var elem = document.createElement('img');
+  var movingPizzas = document.getElementById('movingPizzas1');
+
+  for (var i = 0; i < 48; i++) {
   // 7/18/15: Optimization:
-  // changed 200 to 30 since that is all the animated pizza's we need to cover screen
-    var elem = document.createElement('img');
+  // changed 200 to 48 since that is all the animated pizza's we need to cover screen
+    //var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
