@@ -515,11 +515,14 @@ function updatePositions() {
   var items = document.querySelectorAll('.mover');
 
   // 7/18/15 Optimization:
-  // Moved this DOM access out of the for loop below
+  // Moved this DOM access out of the for loop below since it doesn't change
   var dbs = document.body.scrollTop / 1250;
-
+  var phaseArr = [ Math.sin(dbs + (0 % 5)),  Math.sin(dbs + (1 % 5)),  Math.sin(dbs + (2 % 5)),  Math.sin(dbs + (3 % 5)),  Math.sin(dbs + (4 % 5)) ];
+  //console.log ("phases 1-5", phaseArr[0], phaseArr[1], phaseArr[2], phaseArr[3], phaseArr[4] );
+  var phase=0;
   for (var i = 0; i < items.length; i++) {
     phase = Math.sin(dbs + (i % 5));
+    //console.log(i, phase);
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
   }
