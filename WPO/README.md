@@ -12,12 +12,13 @@ been eliminated and under 60fps has been achieved.
 
 ### Optimizations Made:
 
-#### Critical Rendering Path optimizations have been made to index.html.
+##### Critical Rendering Path optimizations have been made to index.html.
 
-  - The Pagespeed Insights score for desktop has been improved
-  from 30% to 97%, and the mobile score has gone from 28% to 95%.
+  - The Pagespeed Insights score for desktop has been improved from 30% to 97%.
 
-#### Browser Rendering Optimizations have been made to improve pizza.html.
+  - The Pagespeed Insights score for mobile has been improved from 28% to 95%.
+
+##### Browser Rendering Optimizations have been made to improve pizza.html.
 
   - Changed updatePositions() function in view/js/main.js to move the
   DOM access out of the for loop.
@@ -31,7 +32,7 @@ been eliminated and under 60fps has been achieved.
   - Also in function changePizzaSizes(), pulled dx and newwidth calculation
   of the for loop since they don't change.
 
-  - Updated .mover class in style.css is add backface-visibility:hidden
+  - Updated .mover class in style.css to add backface-visibility:hidden
   which creates moving pizza's in their own layers and reduces the amount of
   painting needed when page is scrolled.
 
