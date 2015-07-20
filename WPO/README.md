@@ -14,9 +14,9 @@ been eliminated and under 60fps has been achieved.
 
 ##### Critical Rendering Path optimizations have been made to index.html.
 
-  - The Pagespeed Insights score for desktop has been improved from 30% to 97%.
+  - The Pagespeed Insights score for desktop has gone from 30% to 97%.
 
-  - The Pagespeed Insights score for mobile has been improved from 28% to 95%.
+  - The Pagespeed Insights score for mobile has gone from 28% to 95%.
 
 ##### Browser Rendering Optimizations have been made to improve pizza.html.
 
