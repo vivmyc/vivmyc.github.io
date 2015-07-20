@@ -15,14 +15,9 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 
 ##### Critical Rendering Path optimizations have been made to index.html
 
-  - Added async attribute to anaytics and perfmatters js
-  - Added media query to the print.css external link
-  - Commented out google font external link since not used
-  - Compressed and reduced size of pizzeria.jpg for front page
-  - Inlined style.css
+  - The Pagespeed Insights score for desktop has gone from 30% to 97%.
 
-  With these changes, the Pagespeed Insights score for desktop has gone
-  from 30% to 97%, and from 28% to 95%.
+  - The Pagespeed Insights score for mobile has gone from 28% to 95%.
 
 ##### Browser Rendering Optimizations have been made to improve pizza.html
 
@@ -44,8 +39,9 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 
 ##### Other Improvments
 
-  - Installed and setup gulp to automate the minifying CSS files and uglifying
-  javascript files.
+  - Installed and setup gulp to automate the minifying of CSS files and uglifying
+  of javascript files.
+
 
 
 
