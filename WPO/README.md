@@ -1,4 +1,4 @@
-## Website Performance Optimization portfolio project
+## Website Performance Optimization Portfolio Project
 
 ### Running the application:
 
@@ -14,6 +14,7 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 ### Optimizations Made:
 
 ##### Critical Rendering Path optimizations have been made to index.html
+(specifics in index.html comment)
 
   - The Pagespeed Insights score for desktop has gone from 30% to 97%.
 
@@ -33,7 +34,7 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
   - Also in function changePizzaSizes(), pulled dx and newwidth calculation
   of the for loop since they don't change.
 
-  - Updated .mover class in style.css to add backface-visibility:hidden
+  - Updated mover class in style.css to add backface-visibility:hidden
   which creates moving pizza's in their own layers and reduces the amount of
   painting needed when page is scrolled.
 
