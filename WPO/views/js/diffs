@@ -1,0 +1,44 @@
+464c464,466
+<     for (var i=0; i < randomPizzas.length; i++) {
+---
+>     // 7/20/2015 Optimization - store length of array in local var
+>     var lenPizza = randomPizzas.length;
+>     for (var i=0; i < lenPizza; i++) {
+481a484,485
+> // 6/20/15 Optimization - declare pizzasDiv outside of loop
+> var pizzasDiv = document.getElementById("randomPizzas");
+483c487
+<   var pizzasDiv = document.getElementById("randomPizzas");
+---
+>   //var pizzasDiv = document.getElementById("randomPizzas");
+521c525,527
+<   for (var i = 0; i < items.length; i++) {
+---
+>   // 7/20/2015 Optimization - store length of array in local var
+>   var lenItems = items.length;
+>   for (var i = 0; i < lenItems; i++) {
+524c530
+<     items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
+---
+>     //items[i].scrollMove = ((items[i].basicLeft + 100 * items[i].phaseLeft) - 1024);
+544c550,557
+<   for (var i = 0; i < 30; i++) {
+---
+> 
+>   // 7/20/2015 Optimization - delclare elem var outside the loop
+>   // Also moved DOM access outside the look and used faster getElementById
+>   // in place of querySelector
+>   var elem = document.createElement('img');
+>   var movingPizzas = document.getElementById('movingPizzas1');
+> 
+>   for (var i = 0; i < 48; i++) {
+546,547c559,560
+<   // changed 200 to 30 since that is all the animated pizza's we need to cover screen
+<     var elem = document.createElement('img');
+---
+>   // changed 200 to 48 since that is all the animated pizza's we need to cover screen
+>     //var elem = document.createElement('img');
+554c567
+<     document.querySelector("#movingPizzas1").appendChild(elem);
+---
+>     movingPizzas.appendChild(elem);

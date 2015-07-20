@@ -543,7 +543,6 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -552,15 +551,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // 7/20/2015 Optimization - delclare elem var outside the loop
   // Also moved DOM access outside the look and used faster getElementById
   // in place of querySelector
-
-  var elem;
-  var movingPizzas = document.getElementById("movingPizzas1");
-  console.log ("movingPizzas.length=", movingPizzas.length);
+  var elem = document.createElement('img');
+  var movingPizzas = document.getElementById('#movingPizzas1');
 
   for (var i = 0; i < 48; i++) {
   // 7/18/15: Optimization:
   // changed 200 to 48 since that is all the animated pizza's we need to cover screen
-    elem = document.createElement('img');
+    //var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
@@ -568,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzas.appendChild(elem);
+    //document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
-
