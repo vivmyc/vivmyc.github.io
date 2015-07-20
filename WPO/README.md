@@ -8,7 +8,8 @@ Here you can explore Cam's simple portfolio template,
 which has been optimized for your viewing pleasure.
 
 Make sure to check out Cam's Pizzeria link, where jank has
-been eliminated and under 60fps has been achieved.
+been eliminated and a frame rate of under 60 fps has been achieved when
+scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 
 ### Optimizations Made:
 
