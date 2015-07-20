@@ -41,7 +41,8 @@ scrolling.  In addition, the time to resize pizza's is now < 2 ms.
 ##### Other Improvments
 
   - Installed and setup gulp to automate the minifying of CSS files and uglifying
-  of javascript files.
+  of javascript files.  Production js and css files are under a separate "dist"
+  folder under the original.
 
 
 
