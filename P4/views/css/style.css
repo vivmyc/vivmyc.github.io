@@ -29,7 +29,9 @@ form {
   font-weight: 800;
 }
 
+/* 7/19/15 Added backface-visibility hack to reduce background painting */
 .mover {
+  backface-visibility: hidden;
   position: fixed;
   width: 256px;
   z-index: -1;
