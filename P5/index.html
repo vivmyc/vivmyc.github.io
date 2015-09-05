@@ -5,11 +5,33 @@
     <title>East Hampton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="js/lib/knockout-3.3.0.js"></script>
-    <script src="js/app.js"></script>
 
 <style>
+
+    body {
+      padding: 30;
+      margin: 30;
+      font-family: 'helvetica neue', helvetica;
+    }
+
+    .nav {
+      background-color: white;
+      color: #333;
+      margin: 0;
+      list-style: none;
+      text-align: left
+    }
+
+    .nav > li {
+      display: block;
+    }
+
+    .nav > li > a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #333; /* black */
+    }
+
 @media screen and (max-width:380px) {
   body {
     background-color: white;
@@ -64,11 +86,15 @@
     <div id="listbx">
       <h3>Popular Restaurants:</h3>
       <div>
-        <ul data-bind="foreach: search()">
+        <ul class="nav" data-bind="foreach: search()">
           <li><a href="#" data-bind="text: title, event: {click: getID}"></a></li>
         </ul>
       </div>
     </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="js/lib/knockout-3.3.0.js"></script>
+    <script src="js/app.js"></script>
 
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZfo9rbctixdC0Imey4YXr_G2ur8-T5mk&amp;libraries=places&amp;callback=initMap">
