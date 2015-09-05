@@ -113,8 +113,8 @@
         //selfaddlInfo('');  // clear out previous info
         var venueCategory = '';
         var venueName = '<h3>' + result.response.venue.name + '</h3>';
-        var venueAddress =  '<p>' + result.response.venue.location.formattedAddress[0] + '<br/>' + result.response.venue.location.formattedAddress[1] + '</p>';
-        var venuePhone = '<p><a href="tel:+' + result.response.venue.contact.phone + '">' + result.response.venue.contact.formattedPhone + '</a></p>';
+        var venueAddress =  '<p>' + result.response.venue.location.formattedAddress[0] + '<br/>' + result.response.venue.location.formattedAddress[1];
+        var venuePhone = '<br/><a href="tel:+' + result.response.venue.contact.phone + '">' + result.response.venue.contact.formattedPhone + '</a></p>';
         if (result.response.venue.price.message == 'Moderate')
           venueCategory='$$$';
         else if (result.response.venue.price.message == 'Expensive')
