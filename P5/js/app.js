@@ -142,11 +142,9 @@ var ViewModel = function() {
   self.search = ko.computed(function(){
     return ko.utils.arrayFilter(self.showPlaces(), function(showPlaces){
       if (showPlaces.title.toLowerCase().indexOf(self.filter().toLowerCase()) >= 0) {
-        //console.log("Keeping marker for " + showPlaces.title);
         if (map!=null) showPlaces.marker.setMap(map);
         return true;
       } else {
-        //console.log("remove marker for " + showPlaces.title);
         showPlaces.marker.setMap(null);
         return false;
       }
@@ -156,7 +154,6 @@ var ViewModel = function() {
   getID = function(listItem) {
     var restaurant='';
     var title=listItem.title;
-    //console.log('listview item was clicked: ' + listItem.title);
     infowindow.setContent('<h3>' + listItem.title + '</h3>');
     for (i=0; i<allPlaces.length; i++) {
       if (allPlaces[i].title==listItem.title){
