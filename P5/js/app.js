@@ -2,6 +2,9 @@
   var map;
   var infowindow;
 
+  //
+  // Model
+  //
   allPlaces = [
   {
    title: "Bostwick's",
@@ -47,7 +50,10 @@
   }
   ];
 
-  // foursquare API url
+  //
+  // Foursquare API url containing api credentials required
+  // "VENUE_ID" will be replaced with fsqID for the restaurant selected
+  //
   fsqURL = 'https://api.foursquare.com/v2/venues/VENUE_ID?client_id=FUU0BFQZQZS15WRMZBQTUUJUY0WZHSGNVTN3OBH4CPFDT1NF&client_secret=MYP0CX33UTJT4SRAXSRMGAIT4S15LNZUNSYVWOSI141BHQA0&v=20130815';
 
   //
@@ -63,7 +69,7 @@
 
     infowindow = new google.maps.InfoWindow();
 
-    // create a home marker on the map
+    // create a home marker on the map for reference
     var homeMarker = new google.maps.Marker({
       position: home,
       map: map,
@@ -94,7 +100,6 @@
       google.maps.event.addListener(marker, 'click', (function(titleCopy, fidCopy) {
         return function() {
           thisMarker=this;
-          //marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
           this.setAnimation(google.maps.Animation.BOUNCE);
           setTimeout(function(){ thisMarker.setAnimation(null); }, 1200);
           infowindow.setContent('<h3>' + titleCopy + '</h3>');
@@ -106,11 +111,15 @@
     }
   } // end initMap()
 
+  //
+  // This function makes an asynchronous call to the Foursquare API to obtain info on this restaurant,
+  // and then sets the info window content with the information.  If the api call fails, a message will
+  // be displayed instead, asking end user to try again later.
+  //
   function showInfo(fid) {
     url=fsqURL.replace("VENUE_ID", fid);
 
     $.ajax({url: url, success: function(result){
-        //selfaddlInfo('');  // clear out previous info
         var venueCategory = '';
         var venueName = '<h3>' + result.response.venue.name + '</h3>';
         var venueAddress =  '<p>' + result.response.venue.location.formattedAddress[0] + '<br/>' + result.response.venue.location.formattedAddress[1];
@@ -131,7 +140,9 @@
   }  // end showInfo()
 
 
-
+//
+// ViewModel
+//
 var ViewModel = function() {
   var self = this;
 
@@ -139,6 +150,10 @@ var ViewModel = function() {
   self.filter = ko.observable('');
   self.addlInfo = ko.observable('');
 
+  //
+  // This computed observable is bound to the listview and will display only restaurants matching the search filter.
+  // Non-matching restaurants will be removed from the map.
+  //
   self.search = ko.computed(function(){
     return ko.utils.arrayFilter(self.showPlaces(), function(showPlaces){
       if (showPlaces.title.toLowerCase().indexOf(self.filter().toLowerCase()) >= 0) {
@@ -151,6 +166,11 @@ var ViewModel = function() {
     });
   });
 
+  //
+  // This function gets called when the user clicks a restaurant in the list on the view.
+  // The marker on the map will animate briefly and the info window for that restaurant will open.
+  // It calls showInfo() to set the info window content.
+  //
   getID = function(listItem) {
     var restaurant='';
     var title=listItem.title;
