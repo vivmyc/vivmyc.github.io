@@ -1,6 +1,6 @@
 ## Project P5 - Neighborhood Map
 
-### Running the application:
+### Using the application:
 
 Navigate to http://vivmyc.github.io/P5
 
