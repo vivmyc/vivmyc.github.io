@@ -57,7 +57,7 @@
     var home = {lat: 41.012555, lng: -72.196681};
 
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.968930, lng: -72.181731},
+      center: {lat: 40.960593, lng: -72.176940},
       zoom: 13
     });
 
