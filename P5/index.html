@@ -5,6 +5,8 @@
     <title>East Hampton</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
   </head>
   <body>
     <div id="header">
@@ -22,7 +24,7 @@
       <h3>Popular Restaurants:</h3>
       <div>
         <ul class="nav" data-bind="foreach: search()">
-          <li><a href="#" data-bind="text: title, event: {click: getID}"></a></li>
+          <li><a href="#" data-bind="text: title, event: {click: $parent.getID}"></a></li>
         </ul>
       </div>
     </div>

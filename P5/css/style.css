@@ -1,8 +1,7 @@
 body {
     padding: 0px;
     margin: 0px;
-    font-family: 'helvetica neue', helvetica;
-}
+    font-family: 'Open Sans', sans-serif;}
 .nav {
     background-color: white;
     color: #333;
@@ -25,7 +24,7 @@ body {
         background-color: white;
     }
     #map {
-        width: 350px;
+        max-width: 350px;
         height: 200px;
         margin-left: 0px;
         margin-bottom: 20px;
@@ -36,7 +35,7 @@ body {
         background-color: white;
     }
     #map {
-        width: 600px;
+        max-width: 600px;
         height: 300px;
         margin-left: 0px;
         margin-bottom: 30px;

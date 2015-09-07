@@ -5,56 +5,56 @@
   //
   // Model
   //
-  allPlaces = [
-  {
-   title: "Bostwick's",
-   latLng: {lat: 40.968080, lng: -72.167136},
-   marker: null,
-   fsqID: '4bd38aa941b9ef3bef7b00e6'
-  },
-  {
-   title: "Harbor Grill",
-   latLng: {lat: 40.997734, lng: -72.181847},
-   marker: null,
-   fsqID: '4cc8c42abcb1b1f703580b8a'
-  },
-  {
-   title: "Babette's",
-   latLng: {lat: 40.964672, lng: -72.187619},
-   marker: null,
-   fsqID: '4c6807598e9120a150a6db64'
-  },
-  {
-   title: "Nick & Toni's",
-   latLng: {lat: 40.970175, lng: -72.181330},
-   marker: null,
-   fsqID: '4a73803df964a5209ddc1fe3'
-  },
-  {
-   title: "Cittanova",
-   latLng: {lat: 40.963916, lng: -72.186340},
-   marker: null,
-   fsqID: '4a95dd48f964a5201c2520e3'
-  },
-  {
-   title: "Serafina",
-   latLng: {lat: 40.968930, lng: -72.181731},
-   marker: null,
-   fsqID: '4bfef9b2369476b0442a8d1f'
-  },
-  {
-   title: "1770 House Restaurant",
-   latLng: {lat: 40.958873, lng: -72.190366},
-   marker: null,
-   fsqID: '4b3171eaf964a520120725e3'
-  }
+  var allPlaces = [
+    {
+       title: "Bostwick's",
+       latLng: {lat: 40.968080, lng: -72.167136},
+       marker: null,
+       fsqID: '4bd38aa941b9ef3bef7b00e6'
+    },
+    {
+       title: "Harbor Grill",
+       latLng: {lat: 40.997734, lng: -72.181847},
+       marker: null,
+       fsqID: '4cc8c42abcb1b1f703580b8a'
+    },
+    {
+       title: "Babette's",
+       latLng: {lat: 40.964672, lng: -72.187619},
+       marker: null,
+       fsqID: '4c6807598e9120a150a6db64'
+    },
+    {
+       title: "Nick & Toni's",
+       latLng: {lat: 40.970175, lng: -72.181330},
+       marker: null,
+       fsqID: '4a73803df964a5209ddc1fe3'
+    },
+    {
+       title: "Cittanova",
+       latLng: {lat: 40.963916, lng: -72.186340},
+       marker: null,
+       fsqID: '4a95dd48f964a5201c2520e3'
+    },
+    {
+       title: "Serafina",
+       latLng: {lat: 40.968930, lng: -72.181731},
+       marker: null,
+       fsqID: '4bfef9b2369476b0442a8d1f'
+    },
+    {
+       title: "1770 House Restaurant",
+       latLng: {lat: 40.958873, lng: -72.190366},
+       marker: null,
+       fsqID: '4b3171eaf964a520120725e3'
+    }
   ];
 
   //
   // Foursquare API url containing api credentials required
   // "VENUE_ID" will be replaced with fsqID for the restaurant selected
   //
-  fsqURL = 'https://api.foursquare.com/v2/venues/VENUE_ID?client_id=FUU0BFQZQZS15WRMZBQTUUJUY0WZHSGNVTN3OBH4CPFDT1NF&client_secret=MYP0CX33UTJT4SRAXSRMGAIT4S15LNZUNSYVWOSI141BHQA0&v=20130815';
+  var fsqURL = 'https://api.foursquare.com/v2/venues/VENUE_ID?client_id=FUU0BFQZQZS15WRMZBQTUUJUY0WZHSGNVTN3OBH4CPFDT1NF&client_secret=MYP0CX33UTJT4SRAXSRMGAIT4S15LNZUNSYVWOSI141BHQA0&v=20130815';
 
   //
   // Initialize the map
@@ -85,6 +85,9 @@
     }));
 
     // create markers for all the restaurants in our model
+    var marker;
+    var title;
+    var fid;
     for (var i = 0; i < allPlaces.length; i++) {
       allPlaces[i].marker = new google.maps.Marker({
         map: map,
@@ -107,7 +110,7 @@
           infowindow.open(map, this);
           // lookup fsqID for this marker
           showInfo(fidCopy);
-        }
+        };
       })(title, fid));
     }
   } // end initMap()
@@ -118,19 +121,20 @@
   // be displayed instead, asking end user to try again later.
   //
   function showInfo(fid) {
-    url=fsqURL.replace("VENUE_ID", fid);
+    var url=fsqURL.replace("VENUE_ID", fid);
 
     $.ajax({url: url, success: function(result){
         var venueCategory = '';
         var venueName = '<h3>' + result.response.venue.name + '</h3>';
         var venueAddress =  '<p>' + result.response.venue.location.formattedAddress[0] + '<br/>' + result.response.venue.location.formattedAddress[1];
         var venuePhone = '<br/><a href="tel:+' + result.response.venue.contact.phone + '">' + result.response.venue.contact.formattedPhone + '</a></p>';
-        if (result.response.venue.price.message == 'Moderate')
+        if (result.response.venue.price.message == 'Moderate') {
           venueCategory='$$$';
-        else if (result.response.venue.price.message == 'Expensive')
+        } else if (result.response.venue.price.message == 'Expensive') {
           venueCategory='$$$$';
-        else
+        } else {
           venueCategory='$$$$$';
+        }
         var venuePrice =  '<p>' + venueCategory + ' ' + result.response.venue.price.message + '</p>';
         infowindow.setContent(venueName + venueAddress + venuePhone + venuePrice);
 
@@ -172,7 +176,8 @@ var ViewModel = function() {
   // The marker on the map will animate briefly and the info window for that restaurant will open.
   // It calls showInfo() to set the info window content.
   //
-  getID = function(listItem) {
+  this.getID = function(listItem) {
+    var i=0;
     var restaurant='';
     var title=listItem.title;
     infowindow.setContent('<h3>' + listItem.title + '</h3>');
