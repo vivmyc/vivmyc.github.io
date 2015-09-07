@@ -85,9 +85,6 @@
     }));
 
     // create markers for all the restaurants in our model
-    var marker;
-    var title;
-    var fid;
     for (var i = 0; i < allPlaces.length; i++) {
       allPlaces[i].marker = new google.maps.Marker({
         map: map,
@@ -96,25 +93,21 @@
         icon: 'img/restaurant.png'
       });
 
-      marker=allPlaces[i].marker;
-      title=allPlaces[i].title;
-      fid=allPlaces[i].fsqID;
-
-      // Add listeners for when markers on map are clicked
-      google.maps.event.addListener(marker, 'click', (function(titleCopy, fidCopy) {
-        return function() {
-          thisMarker=this;
-          this.setAnimation(google.maps.Animation.BOUNCE);
-          setTimeout(function(){ thisMarker.setAnimation(null); }, 1200);
-          infowindow.setContent('<h3>' + titleCopy + '</h3>');
-          infowindow.open(map, this);
-          // lookup fsqID for this marker
-          showInfo(fidCopy);
-        };
-      })(title, fid));
+      createEventListener(allPlaces[i]);
     }
   } // end initMap()
 
+function createEventListener(place) {
+  // Add listeners for when markers on map are clicked
+  google.maps.event.addListener(place.marker, 'click', function() {
+    place.marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function(){ place.marker,setAnimation(null); }, 1200);
+    infowindow.setContent('<h3>' + place.title + '</h3>');
+    infowindow.open(map, place.marker);
+    // lookup fsqID for this marker
+    showInfo(place.fsqID);
+  });
+}
   //
   // This function makes an asynchronous call to the Foursquare API to obtain info on this restaurant,
   // and then sets the info window content with the information.  If the api call fails, a message will
