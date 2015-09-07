@@ -4,6 +4,8 @@
 
 Navigate to http://vivmyc.github.io/P5
 
+[Visit GitHub!](http://vivmyc.github.io/P5)
+
 Here you can view various restaurants in the East Hampton NY area marked on a map.
 Clicking on a map marker will pop up a window displaying the restaurant's address,
 phone number and price category information, obtained asynchronously from Foursquare.

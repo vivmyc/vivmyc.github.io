@@ -21,6 +21,7 @@ body {
       text-decoration: none;
       font-size: 14px;
       color: #333; /* black */
+      overflow: auto;
     }
 
 @media screen and (max-width:400px) {
