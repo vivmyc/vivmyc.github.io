@@ -15,6 +15,7 @@ body {
 
     .nav > li {
       display: block;
+      overflow: auto;
     }
 
     .nav > li > a {
