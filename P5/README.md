@@ -16,4 +16,4 @@ as a home icon.
 
 Please enjoy your stay!
 
-[Click Here](http://vivmyc.github.io/P5) to start the application!
+[Click Here](http://vivmyc.github.io/P5) to bring up the application.
