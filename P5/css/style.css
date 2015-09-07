@@ -1,65 +1,58 @@
 body {
-      padding: 30;
-      margin: 30;
-      font-family: 'helvetica neue', helvetica;
-    }
-
-    .nav {
-      background-color: white;
-      color: #333;
-      margin: 0;
-      list-style: none;
-      text-align: left;
-      overflow: auto;
-    }
-
-    .nav > li {
-      display: block;
-      overflow: auto;
-    }
-
-    .nav > li > a {
-      text-decoration: none;
-      font-size: 14px;
-      color: #333; /* black */
-      overflow: auto;
-    }
-
-@media screen and (max-width:400px) {
-  body {
+    padding: 30;
+    margin: 30;
+    font-family: 'helvetica neue', helvetica;
+}
+.nav {
     background-color: white;
-  }
-  #map {
-    width: 350px;
-    height: 200px;
-    margin-left: 0px;
-    margin-bottom: 20px;
-    overflow: auto;
-  }
+    color: #333;
+    margin: 0;
+    list-style: none;
+    text-align: left;
 }
-
-@media screen and (min-width:401px) and (max-width:768px) {
-  body {
-      background-color: white;
+.nav > li {
+    display: block;
+    overflow: auto;
+}
+.nav > li > a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #333;
+    /* black */
+}
+@media screen and (max-width: 400px) {
+    body {
+        background-color: white;
     }
-  #map {
-    width: 600px;
-    height: 300px;
-    margin-left: 0px;
-    margin-bottom: 30px;
-    overflow: auto;
-  }
+    #map {
+        width: 350px;
+        height: 200px;
+        margin-left: 0px;
+        margin-bottom: 20px;
+        overflow: auto;
+    }
 }
-
+@media screen and (min-width: 401px) and (max-width: 768px) {
+    body {
+        background-color: white;
+    }
+    #map {
+        width: 600px;
+        height: 300px;
+        margin-left: 0px;
+        margin-bottom: 30px;
+        overflow: auto;
+    }
+}
 @media screen and (min-width: 769px) {
-  body {
-      background-color: white;
+    body {
+        background-color: white;
     }
-  #map {
-    width: 769px;
-    height: 400px;
-    margin-left: 0px;
-    margin-bottom: 30px;
-    overflow: :auto;
-  }
+    #map {
+        width: 769px;
+        height: 400px;
+        margin-left: 0px;
+        margin-bottom: 30px;
+        overflow: : auto;
+    }
 }
