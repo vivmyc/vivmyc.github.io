@@ -1,6 +1,6 @@
 body {
-    padding: 30;
-    margin: 30;
+    padding: 30px;
+    margin: 30px;
     font-family: 'helvetica neue', helvetica;
 }
 .nav {
@@ -29,7 +29,6 @@ body {
         height: 200px;
         margin-left: 0px;
         margin-bottom: 20px;
-        overflow: auto;
     }
 }
 @media screen and (min-width: 401px) and (max-width: 768px) {
@@ -41,7 +40,6 @@ body {
         height: 300px;
         margin-left: 0px;
         margin-bottom: 30px;
-        overflow: auto;
     }
 }
 @media screen and (min-width: 769px) {
@@ -53,6 +51,5 @@ body {
         height: 400px;
         margin-left: 0px;
         margin-bottom: 30px;
-        overflow: : auto;
     }
 }
