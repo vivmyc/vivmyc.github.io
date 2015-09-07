@@ -97,17 +97,18 @@
     }
   } // end initMap()
 
-function createEventListener(place) {
-  // Add listeners for when markers on map are clicked
-  google.maps.event.addListener(place.marker, 'click', function() {
-    place.marker.setAnimation(google.maps.Animation.BOUNCE);
-    setTimeout(function(){ place.marker.setAnimation(null); }, 1200);
-    infowindow.setContent('<h3>' + place.title + '</h3>');
-    infowindow.open(map, place.marker);
-    // lookup fsqID for this marker
-    showInfo(place.fsqID);
-  });
-}
+  function createEventListener(place) {
+    // Add listeners for when markers on map are clicked
+    google.maps.event.addListener(place.marker, 'click', function() {
+      place.marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function(){ place.marker.setAnimation(null); }, 1200);
+      infowindow.setContent('<h3>' + place.title + '</h3>');
+      infowindow.open(map, place.marker);
+      // lookup fsqID for this marker
+      showInfo(place.fsqID);
+    });
+  }
+
   //
   // This function makes an asynchronous call to the Foursquare API to obtain info on this restaurant,
   // and then sets the info window content with the information.  If the api call fails, a message will
