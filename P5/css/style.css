@@ -23,38 +23,41 @@ body {
       color: #333; /* black */
     }
 
-@media screen and (max-width:380px) {
+@media screen and (max-width:400px) {
   body {
     background-color: white;
   }
   #map {
-    width: 300px;
+    width: 350px;
     height: 200px;
     margin-left: 0px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    overflow: auto;
   }
 }
 
-@media screen and (min-width:381px) and (max-width:700px) {
-  body {
-      background-color: #F0F0F0;
-    }
-  #map {
-    width: 600px;
-    height: 400px;
-    margin-left: 0px;
-    margin-bottom: 30px
-  }
-}
-
-@media screen and (min-width: 701px) {
+@media screen and (min-width:401px) and (max-width:768px) {
   body {
       background-color: white;
     }
   #map {
-    width: 900px;
-    height: 500px;
+    width: 600px;
+    height: 300px;
     margin-left: 0px;
-    margin-bottom: 30px
+    margin-bottom: 30px;
+    overflow: auto;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  body {
+      background-color: white;
+    }
+  #map {
+    width: 769px;
+    height: 400px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    overflow: :auto;
   }
 }
