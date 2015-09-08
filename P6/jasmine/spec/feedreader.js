@@ -25,7 +25,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
         /*
          * This test loops through each feed
          * in the allFeeds object and ensures it has a URL defined
@@ -34,19 +33,19 @@ $(function() {
         it('have URLs defined', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
-            };
+            }
          });
 
          it('have URLs != empty string', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).not.toBe('');
-            };
+            }
          });
 
          it('have URLs that are not null', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).not.toBeNull();
-            };
+            }
 
          });
 
@@ -59,19 +58,19 @@ $(function() {
          it('have names defined', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
-            };
+            }
          });
 
          it('have names != empty string', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).not.toBe('');
-            };
+            }
          });
 
          it('have names that are not null', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).not.toBeNull();
-            };
+            }
          });
     }); // RSS Feeds test suite
 
@@ -157,7 +156,7 @@ $(function() {
         });
 
         it('changes the content', function (done) {
-            console.log("New Title="+$(".header-title").text())
+            console.log("New Title="+$(".header-title").text());
             expect( $(".header-title").text()).not.toBe($oldTitle);
             done();
         });
@@ -167,6 +166,7 @@ $(function() {
 
     /*
      * Test suite for future Search feature
+     * Remove x from xdescribe to run this test suite
      */
     xdescribe('Search Functionality', function() {
 
@@ -186,7 +186,7 @@ $(function() {
          * input value is empty.
          */
         it('does not call filterList() if submit clicked with empty search input', function() {
-            feedList = $('.feed-list'),
+            feedList = $('.feed-list');
             $('.search-input').val('');  // empty search input
             $('.search-submit').click(); // click submit
             spyOn(feedList, "filterList");  // replace filterList function with a spy
