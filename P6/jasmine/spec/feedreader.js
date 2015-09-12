@@ -30,48 +30,27 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty, or null.
          */
-        it('have URLs defined', function() {
+        it('have URLs defined and are not null or empty strings', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
-            }
-         });
-
-         it('have URLs != empty string', function() {
-            for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).not.toBe('');
-            }
-         });
-
-         it('have URLs that are not null', function() {
-            for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).not.toBeNull();
             }
-
          });
-
 
         /*
          * This test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty or null.
          */
-         it('have names defined', function() {
+         it('have names defined and are not null or empty strings', function() {
             for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
-            }
-         });
-
-         it('have names != empty string', function() {
-            for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).not.toBe('');
-            }
-         });
-
-         it('have names that are not null', function() {
-            for (i=0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).not.toBeNull();
             }
          });
+
     }); // RSS Feeds test suite
 
 
@@ -129,7 +108,8 @@ $(function() {
         });
 
         it('has at least one feed entry', function (done) {
-            expect( $(".feed").children().length).toBeGreaterThan(0);
+            expect( $(".feed").find(".entry").length).toBeGreaterThan(0);
+
             done();
         });
 
@@ -143,21 +123,23 @@ $(function() {
 
         /*
          * This test ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
+         * by the loadFeed function that the content changes.
          * loadFeed() is asynchronous, so use async done() function.
          */
-        var $oldTitle = $(".header-title").text();
-        console.log("Old Title="+$oldTitle);
+        var $oldFeed;
 
         beforeEach(function(done) {
-            loadFeed(1, function() {
-                done();
+            $('.feed').empty();  // clear out previous content
+            loadFeed(0, function() {
+                $oldFeed = $(".feed").html();
+                loadFeed(1, done);
             });
         });
 
         it('changes the content', function (done) {
-            console.log("New Title="+$(".header-title").text());
-            expect( $(".header-title").text()).not.toBe($oldTitle);
+            //console.log("Old Feed ="+$oldFeed);
+            //console.log("New Feed ="+$(".feed").html());
+            expect( $(".feed").html()).not.toBe($oldFeed);
             done();
         });
 
